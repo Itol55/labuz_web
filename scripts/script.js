@@ -3,7 +3,7 @@ var mixer = mixitup('.tmp');
 $("#dif").twentytwenty();
 
 function SetUp(index) {
-    let imgSrc = "./images/big/" + $("a.pop").eq(index).children("img").attr("alt") + ".jpg";
+    let imgSrc = "./images/galleryOpen/" + $("a.pop").eq(index).children("img").attr("alt") + ".jpg";
     $('#img01').attr("src", imgSrc);
 }
 var tmp;
