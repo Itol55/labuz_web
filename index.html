@@ -3,7 +3,7 @@
 <html lang="pl">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -84,7 +84,7 @@
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente animi corporis mollitia consectetur, id accusantium praesentium hic, excepturi magnam architecto enim obcaecati! Sint aliquid, nesciunt porro in nobis obcaecati neque.</p>
       <div class="row">
         <ul class="portfolio mx-auto">
-          <li class="filter" data-filter=".all">Wszystkie</li>
+          <li class="filter" data-filter="all">Wszystkie</li>
           <li class="filter" data-filter=".sport">Sportowe</li>
           <li class="filter" data-filter=".lux">Luksusowe</li>
           <li class="filter" data-filter=".suv">Suvy</li>
@@ -96,7 +96,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 mix sport lux all">
               <div class="item">
                   <a class="pop">
-                      <img src="./images/fb.jpg" alt="audi_before" />
+                      <img src="./images/fb.jpg" alt="fb" />
                       <p class="text-center">
                           Ferrari California 1
                       </p>
@@ -106,7 +106,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 mix sport all">
               <div class="item">
                   <a class="pop">
-                      <img src="./images/fb2.jpg" alt="California2" />
+                      <img src="./images/fb2.jpg" alt="audi_before" />
                       <p class="text-center">
                           Ferrari California 2
                       </p>
@@ -168,14 +168,12 @@
     <div id="myModal" class="modal">
 
         <!-- The Close Button -->
-        <span class="close">&times;</span>
-      
+        <i class="far fa-times-circle close2"></i>
+        <i class="fas fa-angle-left" id="left"></i>
+        <i class="fas fa-angle-right" id="right"></i>        
         <!-- Modal Content (The Image) -->
-        <img class="img-responsive" id="img01" src="">
-      
-        <!-- Modal Caption (Image Text) -->
-        <div id="caption"></div>
-      </div>
+        <img class="img-responsive" id="img01">
+    </div>
 
   </main>
 

@@ -2,54 +2,67 @@ var mixer = mixitup('.tmp');
 
 $("#dif").twentytwenty();
 
-function PopUp(number) {
-    modalImg.setAttribute("src", elements[number].children[0].getAttribute("src"));
-    captionText.innerHTML = elements[number].children[1].innerHTML;
+function SetUp(index) {
+    let imgSrc = "./images/big/" + $("a.pop").eq(index).children("img").attr("alt") + ".jpg";
+    $('#img01').attr("src", imgSrc);
 }
+var tmp;
 
 $("a.pop").click(function(){
-    let imgSrc = "./images/big/" + $(this).children("img").attr("alt") + ".jpg";
-    let text = $(this).children("p").html();
-    $('#myModal div#caption').html(text);
-    $('#img01').attr("src", imgSrc);
+
+    tmp = $("a.pop").index(this);
+    SetUp(tmp);
+    $("#left").click(function() {
+        if (tmp > 0) {
+            tmp--;
+        }
+        else {
+            tmp = $("a.pop").length-1;
+        }
+        SetUp(tmp);
+    });
+    $("#right").click(function() {
+        if (tmp < $("a.pop").length-1) {
+            tmp++;
+        }
+        else {
+            tmp = 0;
+        }
+        SetUp(tmp);
+    });
+
     $('#myModal').modal('show');
 });
 
-$("span.close").click(function(){
+$("i.close2").click(function(){
     $('#myModal').modal('hide');
 });
 
+function CenterGallery() {
+    let width = $("#img01").width();
+    let height = $("#img01").height();
+
+    let offsetX = ($(window).width() - width) / 2;
+    let offsetY = ($(window).height() - height) / 2;
+
+    let newTopForArrow = ($(window).height() - $("#left").height())/2;
 
 
-/*
-// Get the modal
-var modal = document.getElementById('myModal');
+    // Center image vertically in window
+    $("#img01").css("left", offsetX);
+    $("#img01").css("top", offsetY);
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var elements = document.querySelectorAll("a.pop")
-var captionText = document.getElementById("caption");
-var modalImg = document.getElementById("img01");
+    // Center arrows vertically in window
+    $("#left").css("top", newTopForArrow);
+    $("#right").css("top", newTopForArrow);
+}
 
-for(let i = 0; i<elements.length;i++)
-{
-    elements[i].addEventListener('click', function(){
-        PopUp(i);
+
+$('#myModal').on('show.bs.modal', function () {
+    $("#img01").on('load', function(){
+        CenterGallery();
     });
-}
-
-function PopUp(number) {
-    modal.style.display = "block";
-    modalImg.setAttribute("src", elements[number].children[0].getAttribute("src"));
-    captionText.innerHTML = elements[number].children[1].innerHTML;
-}
-
-
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
-}
-*/
+});
+$(window).on('resize', function(){
+    CenterGallery();
+});
